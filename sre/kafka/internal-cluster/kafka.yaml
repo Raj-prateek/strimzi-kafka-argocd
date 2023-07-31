@@ -11,7 +11,7 @@ metadata:
 spec:
   kafka:
     version: 3.4.0
-    replicas: 3
+    replicas: 1
     logging:
       type: external
       valueFrom:
@@ -41,21 +41,21 @@ spec:
           type: persistent-claim
           size: 1Gi
           deleteClaim: false
-          class: standard-rwo
+          # class: standard-rwo
         - id: 1
           type: persistent-claim
           size: 0.5Gi
           deleteClaim: false
-          class: standard-rwo
+          # class: standard-rwo
     rack:
       topologyKey: topology.kubernetes.io/zone
   zookeeper:
-    replicas: 3
+    replicas: 1
     storage:
       type: persistent-claim
       size: 1Gi
       deleteClaim: false
-      class: premium-rwo
+      # class: premium-rwo
     template:
       pod:
         affinity:
