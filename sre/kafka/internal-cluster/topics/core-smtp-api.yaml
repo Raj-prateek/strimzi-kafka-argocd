@@ -1,0 +1,12 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: "core.smtp-api"
+  labels:
+    strimzi.io/cluster: gke-offshore-asia-south1-kafka-cluster
+spec:
+  partitions: 1
+  replicas: 1
+  config:
+    retention.ms: 86400000
+    segment.bytes: 1073741824

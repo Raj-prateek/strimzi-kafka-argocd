@@ -17,6 +17,6 @@ spec:
         server: "{{url}}"
       project: core-sre
       source:
-        path: sre/kafka/{{name}}
+        path: sre/kafka/{{cluster}}
         repoURL: https://github.com/Raj-prateek/strimzi-kafka-argocd.git
         targetRevision: main
