@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: "kafka-cluster"
+  namespace: argocd
+spec:
+  generators:
+    - clusters:
+        selector:
+          matchLabels:
+            brevo.com/cluster.with.strimzi.kafka: "true"
+  template:
+    metadata:
+      name: "{{name}}-kafka-cluster"
+    spec:
+      destination:
+        server: "{{server}}"
+      project: core-sre
+      source:
+        path: sre/kafka/{{name}}
+        repoURL: https://github.com/Raj-prateek/strimzi-kafka-argocd.git
+        targetRevision: main

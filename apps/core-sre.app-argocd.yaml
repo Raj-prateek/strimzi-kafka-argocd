@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: core-sre
+  namespace: argocd
+spec:
+  project: core-sre
+  source:
+    repoURL: https://github.com/Raj-prateek/strimzi-kafka-argocd.git
+    targetRevision: main
+    path: apps
+    directory:
+      recurse: true
+      exclude: "{.no-deploy.*.yaml,*.app-argocd.yaml,*.project-argocd.yaml}"
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+
+  syncPolicy:
+    automated: { allowEmpty: true, selfHeal: true }
