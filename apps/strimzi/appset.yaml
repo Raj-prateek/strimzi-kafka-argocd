@@ -18,7 +18,7 @@ spec:
         namespace: strimzi
       project: core-sre
       source:
-        chart: "strimzi/strimzi-kafka-operator"
+        chart: "strimzi-kafka-operator"
         repoURL: "https://strimzi.io/charts"
         targetRevision: 0.36.0
         helm:
