@@ -2,6 +2,7 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
   name: "core.smtp-api"
+  namespace: kafka
   labels:
     strimzi.io/cluster: internal-cluster-kafka-cluster
 spec:
