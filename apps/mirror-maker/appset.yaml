@@ -11,12 +11,12 @@ spec:
             url: https://kubernetes.default.svc
   template:
     metadata:
-      name: "{{name}}-kafka-mirror-maker"
+      name: "{{cluster}}-kafka-mirror-maker"
     spec:
       destination:
-        server: "{{server}}"
+        server: "{{url}}"
       project: core-sre
       source:
-        path: sre/mirror-maker/{{name}}
+        path: sre/mirror-maker/{{cluster}}
         repoURL: https://github.com/Raj-prateek/strimzi-kafka-argocd.git
         targetRevision: main
