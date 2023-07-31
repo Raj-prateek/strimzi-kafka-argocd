@@ -5,10 +5,10 @@ metadata:
   namespace: argocd
 spec:
   generators:
-    - clusters:
-        selector:
-          matchLabels:
-            brevo.com/cluster.with.strimzi.kafka: "true"
+    - list:
+        elements:
+          - cluster: internal-cluster
+            url: https://kubernetes.default.svc
   template:
     metadata:
       name: "{{name}}-strimzi-kafka-operator"
