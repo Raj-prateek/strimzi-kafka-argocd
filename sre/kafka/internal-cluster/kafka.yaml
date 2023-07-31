@@ -6,7 +6,7 @@ metadata:
 apiVersion: kafka.strimzi.io/v1beta2
 kind: Kafka
 metadata:
-  name: gke-offshore-asia-south1-kafka-cluster
+  name: internal-cluster-kafka-cluster
   namespace: kafka
 spec:
   kafka:
@@ -39,12 +39,12 @@ spec:
       volumes:
         - id: 0
           type: persistent-claim
-          size: 100Gi
+          size: 1Gi
           deleteClaim: false
           class: standard-rwo
         - id: 1
           type: persistent-claim
-          size: 50Gi
+          size: 0.5Gi
           deleteClaim: false
           class: standard-rwo
     rack:
@@ -53,7 +53,7 @@ spec:
     replicas: 3
     storage:
       type: persistent-claim
-      size: 100Gi
+      size: 1Gi
       deleteClaim: false
       class: premium-rwo
     template:
@@ -66,7 +66,7 @@ spec:
                     - key: strimzi.io/name
                       operator: In
                       values:
-                        - gke-offshore-asia-south1-kafka-cluster-zookeeper
+                        - internal-cluster-kafka-cluster-zookeeper
                 topologyKey: "kubernetes.io/hostname"
   entityOperator:
     topicOperator: {}
